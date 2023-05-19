@@ -11,18 +11,11 @@ const picture = galleryItems.map((image) =>
     <img class="gallery__image" src="${image.preview}" alt="${image.description}" />
     </a>
 </li>`)
-  .join("");
+    .join("");
 gallery.insertAdjacentHTML("beforeend", picture)
 
-gallery.addEventListener("click", getOriginalImg);
-function getOriginalImg(event) {
-    event.preventDefault();
-    if (event.target.nodeName !== "IMG") {
-        return;
-    }
-    const lightbox = new SimpleLightbox('.gallery a', {
+const lightbox = new SimpleLightbox('.gallery a', {
         captionsData: "alt",
         captionPosition: "bottom",
         captionDelay: 250,
     });
-};
